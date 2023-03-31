@@ -4,7 +4,6 @@
 using namespace std;
 
 int main(){
-	
 	int x, y;
 	int *p1, *p2;
 	x = -42;
@@ -31,7 +30,4 @@ int main(){
 	p2 = NULL;
 	cout<<"El nuevo valor de p1 es: "<< p1 <<endl;
 	cout<<"El nuevo valor de p2 es: "<< p2 <<endl;
-	
-	
-
 }
