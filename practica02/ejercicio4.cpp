@@ -7,11 +7,6 @@ void mayorSueldo(int total,float sueldos[MAX], string nombres[MAX]);
 void promedio(int total, float sueldos[MAX]);
 
 int main(){
-    /*
-     *  Elaborar un programa que permita ingresar “n” sueldos, así como el nombre del empleado, y
-        almacenar en un arreglo. Se asume que el índice del arreglo es el código del empleado. Mostrar el
-        código y nombre del empleado que tiene mayor sueldo, así como el promedio de los sueldos.
-    */
     int n;
     cout<<"Ingrese la cantidad de empleados: ";
     cin>>n;

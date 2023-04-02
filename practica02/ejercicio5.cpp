@@ -31,9 +31,9 @@ int main() {
     }
     cout<<"--------------------------------------"<<endl;
 
-    cout<<"Nombre empleado | Categoría | Venta"<<endl;
+    cout<<"Nombre empleado \t| Categoría\t| Venta"<<endl;
     for(i=0; i<n; i++){
-        cout<<nombres[i]<<" | "<<categorias[i]<<" | s/. "<<ventas[i]<<endl;
+        cout<<nombres[i]<<" \t| "<<categorias[i]<<" \t| s/. "<<ventas[i]<<endl;
     }
     cout<<"\n"<<endl;
     cout<<"Cantidad de empleados: "<<n<<endl;
