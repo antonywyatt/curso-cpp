@@ -29,7 +29,7 @@ int main() {
         cout << "1. Organizar archivos" << endl;
         cout << "2. Ver archivos en general" << endl;
         cout << "3. Ver archivos por tipo" << endl;
-        cout << "4. Integrante" << endl;
+        cout << "4. Integrantes" << endl;
         cout << "0. Salir" << endl;
         cout << colorTexto("==================================", "verde") << endl;
         cout << "Opcion: ";
