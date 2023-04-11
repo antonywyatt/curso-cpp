@@ -102,7 +102,7 @@ int organizarArchivos(string archivos[MAX], string tipo[MAX], int i){
 
     //recorrer todos los archivos
     for (const auto& archivo : filesystem::directory_iterator(directorio)) {
-
+        //obtener el nombre del archivo
         string nombre_archivo = archivo.path().filename().string();
         //obtner la extension del archivo
         string extension = nombre_archivo.substr(nombre_archivo.find_last_of(".") + 1);
