@@ -71,6 +71,8 @@ int main() {
                 for(k = 0; k < contador; k++){
                     cout << archivos_tipo[k] << endl;
                 }
+
+
                 cout << "_______________________________________" << endl;
             }
             break;
