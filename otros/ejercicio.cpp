@@ -157,7 +157,6 @@ void genero(sPersona per)
 {
 	if(per.notas>=11)
 	{
-		
 		if(per.genero=='M')
 		{
 			cout<<"*************Mostrar Nombre**************"<<endl;
@@ -168,6 +167,4 @@ void genero(sPersona per)
 			cout<<"*****************************************"<<endl;
 		}
 	}
-	
-	
 }
