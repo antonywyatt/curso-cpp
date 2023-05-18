@@ -12,6 +12,7 @@ Nodo* lista = nullptr;
 //declarar funciones
 void ingresarElemento(Nodo*& lista, int elemento);
 void mostrarElementos(Nodo* lista);
+void buscarElemento(Nodo* lista, int elemento);
 
 int main() {
     char opcion, rpta;
@@ -23,6 +24,7 @@ int main() {
         cout << "------------------------" << endl;
         cout << "1. Ingresar elementos" << endl;
         cout << "2. Mostrar elementos" << endl;
+        cout << "3. Buscar elemento" << endl;
         cout << "8. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> opcion;
@@ -44,6 +46,11 @@ int main() {
                 break;
             case '2':
                 mostrarElementos(lista);
+                break;
+            case '3':
+                cout << "Ingrese el elemento a buscar: ";
+                cin >> elemento;
+                buscarElemento(lista, elemento);
                 break;
             case '8':
                 cout << "Saliendo..." << endl;
@@ -84,5 +91,21 @@ void mostrarElementos(Nodo* lista) {
             actual = actual->siguiente;
         }
         cout << endl;
+    }
+}
+
+void buscarElemento(Nodo* lista, int elemento) {
+    bool encontrado = false;
+    Nodo* actual = lista;
+    while (actual != nullptr) {
+        if (actual->dato == elemento) {
+            encontrado = true;
+        }
+        actual = actual->siguiente;
+    }
+    if(encontrado){
+        cout<<"El elemento "<<elemento<<" se encuentra en la lista."<<endl;
+    }else{
+        cout<<"El elemento "<<elemento<<" no se encuentra en la lista."<<endl;
     }
 }

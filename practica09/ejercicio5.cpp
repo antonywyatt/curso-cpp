@@ -12,6 +12,8 @@ Nodo* lista = nullptr;
 //declarar funciones
 void ingresarElemento(Nodo*& lista, int elemento);
 void mostrarElementos(Nodo* lista);
+void buscarElemento(Nodo* lista, int elemento);
+void eliminarElemento(Nodo*& lista, int elemento);
 
 int main() {
     char opcion, rpta;
@@ -23,6 +25,8 @@ int main() {
         cout << "------------------------" << endl;
         cout << "1. Ingresar elementos" << endl;
         cout << "2. Mostrar elementos" << endl;
+        cout << "3. Buscar elemento" << endl;
+        cout << "4. Eliminar elemento" << endl;
         cout << "8. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> opcion;
@@ -45,11 +49,21 @@ int main() {
             case '2':
                 mostrarElementos(lista);
                 break;
+            case '3':
+                cout << "Ingrese el elemento a buscar: ";
+                cin >> elemento;
+                buscarElemento(lista, elemento);
+                break;
+            case '4':
+                cout << "Ingrese el elemento a eliminar: ";
+                cin >> elemento;
+                eliminarElemento(lista, elemento);
+                break;
             case '8':
                 cout << "Saliendo..." << endl;
                 break;
             default:
-                cout << "Opcion invalida. Intente de nuevo." << endl;
+                cout << "Opción invalida. Intente de nuevo." << endl;
         }
     } while (opcion != '8');
 
@@ -84,5 +98,51 @@ void mostrarElementos(Nodo* lista) {
             actual = actual->siguiente;
         }
         cout << endl;
+    }
+}
+
+void buscarElemento(Nodo* lista, int elemento) {
+    bool encontrado = false;
+    Nodo* actual = lista;
+    while (actual != nullptr) {
+        if (actual->dato == elemento) {
+            encontrado = true;
+        }
+        actual = actual->siguiente;
+    }
+    if(encontrado){
+        cout<<"El elemento "<<elemento<<" se encuentra en la lista."<<endl;
+    }else{
+        cout<<"El elemento "<<elemento<<" no se encuentra en la lista."<<endl;
+    }
+}
+
+void eliminarElemento(Nodo*& lista, int elemento) {
+    Nodo* actual = lista;
+    Nodo* anterior = nullptr;
+    bool encontrado = false;
+    if (lista == nullptr) {
+        cout << "La lista esta vacía." << endl;
+    } else {
+        while (actual != nullptr && !encontrado) {
+            if (actual->dato == elemento) {
+                encontrado = true;
+            }
+            if (!encontrado) {
+                anterior = actual;
+                actual = actual->siguiente;
+            }
+        }
+        if (actual == nullptr) {
+            cout << "El elemento no se encuentra en la lista." << endl;
+        } else if (anterior == nullptr) {
+            lista = lista->siguiente;
+            delete actual;
+            cout << "El elemento " << elemento << " ha sido eliminado." << endl;
+        } else {
+            anterior->siguiente = actual->siguiente;
+            delete actual;
+            cout << "El elemento " << elemento << " ha sido eliminado." << endl;
+        }
     }
 }
