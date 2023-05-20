@@ -15,6 +15,7 @@ void mostrarElementos(Nodo* lista);
 void buscarElemento(Nodo* lista, int elemento);
 void eliminarElemento(Nodo*& lista, int elemento);
 void vaciarLista(Nodo*& lista);
+void mayorymenor(Nodo* lista);
 
 int main() {
     char opcion, rpta;
@@ -29,6 +30,7 @@ int main() {
         cout << "3. Buscar elemento" << endl;
         cout << "4. Eliminar elemento" << endl;
         cout << "5. Vaciar lista" << endl;
+        cout << "6. Mayor y Menor elemento" << endl;
         cout << "8. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> opcion;
@@ -63,6 +65,9 @@ int main() {
                 break;
             case '5':
                 vaciarLista(lista);
+                break;
+            case '6':
+                mayorymenor(lista);
                 break;
             case '8':
                 cout << "Saliendo..." << endl;
@@ -162,4 +167,23 @@ void vaciarLista(Nodo*& lista) {
     }
     lista = nullptr;
     cout << "La lista ha sido vaciada." << endl;
+}
+
+void mayorymenor(Nodo* lista){
+    int mayor = lista->dato;
+    int menor = lista->dato;
+
+    Nodo* actual = lista;
+
+    while(actual != nullptr){
+        if(actual->dato < menor){
+            menor = actual->dato;
+        }else if(actual->dato > mayor){
+            mayor = actual->dato;
+        }
+        actual = actual->siguiente;
+    }
+
+    cout<<"El elemento mayor es: " << mayor << endl;
+    cout<<"El elemmento menor es: "<<menor<<endl;
 }
