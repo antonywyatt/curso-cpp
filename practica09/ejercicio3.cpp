@@ -10,8 +10,8 @@ struct Nodo {
 Nodo* lista = nullptr;
 
 //declarar funciones
-void ingresarElemento(Nodo*& lista, int elemento);
-void mostrarElementos(Nodo* lista);
+void ingresarElemento(int elemento);
+void mostrarElementos();
 
 int main() {
     char opcion, rpta;
@@ -34,7 +34,7 @@ int main() {
                     cout<<"Ingrese un numero que desee agregar a la lista: ",
                     cin>>elemento;
                     cout<<endl;
-                    ingresarElemento(lista, elemento);
+                    ingresarElemento(elemento);
                     do{
                         cout<<"Desea agregar otro elemento a la lista? (S/N): ";
                         cin>>rpta;
@@ -43,7 +43,7 @@ int main() {
                 }while(rpta=='s' || rpta=='S');
                 break;
             case '2':
-                mostrarElementos(lista);
+                mostrarElementos();
                 break;
             case '8':
                 cout << "Saliendo..." << endl;
@@ -57,7 +57,7 @@ int main() {
 }
 
 //desarrollo de funciones
-void ingresarElemento(Nodo*& lista, int elemento) {
+void ingresarElemento(int elemento) {
     Nodo* nuevoNodo = new Nodo();
     nuevoNodo->dato = elemento;
     nuevoNodo->siguiente = nullptr;
@@ -73,10 +73,10 @@ void ingresarElemento(Nodo*& lista, int elemento) {
     }
 }
 
-void mostrarElementos(Nodo* lista) {
+void mostrarElementos() {
     Nodo* actual = lista;
     if (actual == nullptr) {
-        cout << "La lista esta vacía." << endl;
+        cout << "La lista esta vacia." << endl;
     } else {
         cout << "Elementos de la lista:" << endl;
         while (actual != nullptr) {

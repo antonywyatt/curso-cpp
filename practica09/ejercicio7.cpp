@@ -10,12 +10,12 @@ struct Nodo {
 Nodo* lista = nullptr;
 
 //declarar funciones
-void ingresarElemento(Nodo*& lista, int elemento);
-void mostrarElementos(Nodo* lista);
-void buscarElemento(Nodo* lista, int elemento);
-void eliminarElemento(Nodo*& lista, int elemento);
-void vaciarLista(Nodo*& lista);
-void mayorymenor(Nodo* lista);
+void ingresarElemento(int elemento);
+void mostrarElementos();
+void buscarElemento(int elemento);
+void eliminarElemento(int elemento);
+void vaciarLista();
+void mayorymenor();
 
 int main() {
     char opcion, rpta;
@@ -42,7 +42,7 @@ int main() {
                     cout<<"Ingrese un numero que desee agregar a la lista: ",
                     cin>>elemento;
                     cout<<endl;
-                    ingresarElemento(lista, elemento);
+                    ingresarElemento(elemento);
                     do{
                         cout<<"Desea agregar otro elemento a la lista? (S/N): ";
                         cin>>rpta;
@@ -51,23 +51,23 @@ int main() {
                 }while(rpta=='s' || rpta=='S');
                 break;
             case '2':
-                mostrarElementos(lista);
+                mostrarElementos();
                 break;
             case '3':
                 cout << "Ingrese el elemento a buscar: ";
                 cin >> elemento;
-                buscarElemento(lista, elemento);
+                buscarElemento(elemento);
                 break;
             case '4':
                 cout << "Ingrese el elemento a eliminar: ";
                 cin >> elemento;
-                eliminarElemento(lista, elemento);
+                eliminarElemento(elemento);
                 break;
             case '5':
-                vaciarLista(lista);
+                vaciarLista();
                 break;
             case '6':
-                mayorymenor(lista);
+                mayorymenor();
                 break;
             case '8':
                 cout << "Saliendo..." << endl;
@@ -81,7 +81,7 @@ int main() {
 }
 
 //desarrollo de funciones
-void ingresarElemento(Nodo*& lista, int elemento) {
+void ingresarElemento(int elemento) {
     Nodo* nuevoNodo = new Nodo();
     nuevoNodo->dato = elemento;
     nuevoNodo->siguiente = nullptr;
@@ -97,7 +97,7 @@ void ingresarElemento(Nodo*& lista, int elemento) {
     }
 }
 
-void mostrarElementos(Nodo* lista) {
+void mostrarElementos() {
     Nodo* actual = lista;
     if (actual == nullptr) {
         cout << "La lista esta vacia." << endl;
@@ -111,7 +111,7 @@ void mostrarElementos(Nodo* lista) {
     }
 }
 
-void buscarElemento(Nodo* lista, int elemento) {
+void buscarElemento(int elemento) {
     bool encontrado = false;
     Nodo* actual = lista;
     while (actual != nullptr) {
@@ -127,7 +127,7 @@ void buscarElemento(Nodo* lista, int elemento) {
     }
 }
 
-void eliminarElemento(Nodo*& lista, int elemento) {
+void eliminarElemento(int elemento) {
     Nodo* actual = lista;
     Nodo* anterior = nullptr;
     bool encontrado = false;
@@ -157,7 +157,7 @@ void eliminarElemento(Nodo*& lista, int elemento) {
     }
 }
 
-void vaciarLista(Nodo*& lista) {
+void vaciarLista() {
     Nodo* actual = lista;
     Nodo* siguiente = nullptr;
     while (actual != nullptr) {
@@ -169,7 +169,7 @@ void vaciarLista(Nodo*& lista) {
     cout << "La lista ha sido vaciada." << endl;
 }
 
-void mayorymenor(Nodo* lista){
+void mayorymenor(){
     int mayor = lista->dato;
     int menor = lista->dato;
 
