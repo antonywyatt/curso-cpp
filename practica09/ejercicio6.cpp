@@ -7,7 +7,7 @@ struct Nodo {
 };
 
 //variable global
-Nodo* lista = nullptr;
+Nodo* lista = NULL;
 
 //declarar funciones
 void ingresarElemento(int elemento);
@@ -79,13 +79,13 @@ int main() {
 void ingresarElemento(int elemento) {
     Nodo* nuevoNodo = new Nodo();
     nuevoNodo->dato = elemento;
-    nuevoNodo->siguiente = nullptr;
+    nuevoNodo->siguiente = NULL;
 
-    if (lista == nullptr) {
+    if (lista == NULL) {
         lista = nuevoNodo;
     } else {
         Nodo* actual = lista;
-        while (actual->siguiente != nullptr) {
+        while (actual->siguiente != NULL) {
             actual = actual->siguiente;
         }
         actual->siguiente = nuevoNodo;
@@ -94,11 +94,11 @@ void ingresarElemento(int elemento) {
 
 void mostrarElementos() {
     Nodo* actual = lista;
-    if (actual == nullptr) {
+    if (actual == NULL) {
         cout << "La lista esta vacia." << endl;
     } else {
         cout << "Elementos de la lista:" << endl;
-        while (actual != nullptr) {
+        while (actual != NULL) {
             cout << actual->dato << " - ";
             actual = actual->siguiente;
         }
@@ -109,7 +109,7 @@ void mostrarElementos() {
 void buscarElemento(int elemento) {
     bool encontrado = false;
     Nodo* actual = lista;
-    while (actual != nullptr) {
+    while (actual != NULL) {
         if (actual->dato == elemento) {
             encontrado = true;
         }
@@ -124,12 +124,12 @@ void buscarElemento(int elemento) {
 
 void eliminarElemento(int elemento) {
     Nodo* actual = lista;
-    Nodo* anterior = nullptr;
+    Nodo* anterior = NULL;
     bool encontrado = false;
-    if (lista == nullptr) {
+    if (lista == NULL) {
         cout << "La lista esta vacía." << endl;
     } else {
-        while (actual != nullptr && !encontrado) {
+        while (actual != NULL && !encontrado) {
             if (actual->dato == elemento) {
                 encontrado = true;
             }
@@ -138,9 +138,9 @@ void eliminarElemento(int elemento) {
                 actual = actual->siguiente;
             }
         }
-        if (actual == nullptr) {
+        if (actual == NULL) {
             cout << "El elemento no se encuentra en la lista." << endl;
-        } else if (anterior == nullptr) {
+        } else if (anterior == NULL) {
             lista = lista->siguiente;
             delete actual;
             cout << "El elemento " << elemento << " ha sido eliminado." << endl;
@@ -154,12 +154,12 @@ void eliminarElemento(int elemento) {
 
 void vaciarLista() {
     Nodo* actual = lista;
-    Nodo* siguiente = nullptr;
-    while (actual != nullptr) {
+    Nodo* siguiente = NULL;
+    while (actual != NULL) {
         siguiente = actual->siguiente;
         delete actual;
         actual = siguiente;
     }
-    lista = nullptr;
+    lista = NULL;
     cout << "La lista ha sido vaciada." << endl;
 }
