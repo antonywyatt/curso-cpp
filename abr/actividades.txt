@@ -3,9 +3,9 @@ ABR ESTRUCTURA DE DATOS
 pendiente
 0
 ABR DE CALCULO
-2
-pendiente
-0
+1
+en proceso
+45
 ABR DE ESTADISTICA 1
 1
 pendiente

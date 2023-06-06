@@ -202,7 +202,7 @@ void finalizarActividad(int indice){
 void guardarDatos(){
     Nodo *aux = listaActividades;
     ofstream archivo;
-    archivo.open("actividades.txt", ios::out);
+    archivo.open("actividades.txt", ios::out); //se abre en modo de escritura
 
     if(archivo.fail()){
         cout << "No se pudo abrir el archivo";
@@ -223,14 +223,14 @@ void guardarDatos(){
 void cargarDatos(){
     ifstream archivo;
     string texto;
-    archivo.open("actividades.txt", ios::in);
+    archivo.open("actividades.txt", ios::in); //se abre en modo de lectura
 
     if(archivo.fail()){
         cout << "No se pudo abrir el archivo";
         exit(1);
     }
 
-    while(!archivo.eof()){
+    while(!archivo.eof()){ //mientras no sea el final del archivo
         sProyecto proyecto;
         getline(archivo, texto);
         if(texto.empty()){
@@ -238,11 +238,11 @@ void cargarDatos(){
         }
         proyecto.nombre = texto;
         getline(archivo, texto);
-        proyecto.prioridad = atoi(texto.c_str());
+        proyecto.prioridad = atoi(texto.c_str()); //convierte string a entero
         getline(archivo, texto);
         proyecto.estado = texto;
         getline(archivo, texto);
-        proyecto.porcentajeAvance = atoi(texto.c_str());
+        proyecto.porcentajeAvance = atoi(texto.c_str()); //convierte string a entero
         agregarActividad(proyecto);
     }
 
