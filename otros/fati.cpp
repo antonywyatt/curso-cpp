@@ -2,77 +2,75 @@
 
 using namespace std;
 
-/**
-    Elaborar un programa, para una empresa que para cada cliente ofrece un descuento, de acuerdo a la 
-    tabla siguiente, y de acuerdo al tipo de producto. Mostrar el monto bruto, el monto de descuento y el 
-    monto total a pagar por cliente. Además, mostrar la cantidad de veces que se seleccionó cada producto 
-    y el acumulado de los montos totales. Puedes usar librerías de programación, variables globales, menú 
-    principal, sub menú, función o procedimiento, con o sin argumentos, según requiera el caso.
+// VARIABLES GLOBALES
+int promedioFinal;
+int acumuladorPromediosFinales = 0;
+int cantidadPromediosFinales = 0;
+float promedioGeneral = 0;
 
-    Tipo de Producto	% de Descuento
-    [A] Mouse            8%
-    [B] Teclado          10%
-    [C] Disco Duro       11%
-    [D] Monitor          15%
-*/
-
-// Variables globales
-int cantMouse = 0, cantTeclado = 0, cantDiscoDuro = 0, cantMonitor = 0;
-float montoTotal = 0;
+// PROTOTIPOS DE FUNCIONES
+void ingresarPromedioFinal();
+void mostrarAcumuladorPromediosFinales();
+void mostrarPromedioGeneral();
 
 int main(){
-
-    // Variables locales
-    char tipoProducto;
-    float montoBruto, montoDescuento, montoPagar;
-    
-    //menu
-    
+    int opcion;
     do{
-        cout << "Ingrese el tipo de producto: ";
-        cin >> tipoProducto;
-        cout << "Ingrese el monto bruto: ";
-        cin >> montoBruto;
-
-        switch (tipoProducto)
-        {
-        case 'A':
-            montoDescuento = montoBruto * 0.08;
-            montoPagar = montoBruto - montoDescuento;
-            cantMouse++;
-            break;
-        case 'B':
-            montoDescuento = montoBruto * 0.10;
-            montoPagar = montoBruto - montoDescuento;
-            cantTeclado++;
-            break;
-        case 'C':
-            montoDescuento = montoBruto * 0.11;
-            montoPagar = montoBruto - montoDescuento;
-            cantDiscoDuro++;
-            break;
-        case 'D':
-            montoDescuento = montoBruto * 0.15;
-            montoPagar = montoBruto - montoDescuento;
-            cantMonitor++;
-            break;
-        default:
-            cout << "Tipo de producto no valido" << endl;
-            break;
+        cout << "===========MENU PRINCIPAL===========" << endl;
+        cout << "1. Ingresar promedio final" << endl;
+        cout << "2. Mostrar promedios finales ingresados" << endl;
+        cout << "3. Mostrar promedio general" << endl;
+        cout << "4. Salir" << endl;
+        cout << "====================================" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        switch(opcion){
+            case 1:
+                ingresarPromedioFinal();
+                break;
+            case 2:
+                mostrarAcumuladorPromediosFinales();
+                break;
+            case 3:
+                mostrarPromedioGeneral();
+                break;
+            case 4:
+                cout << "Saliendo..." << endl;
+                break;
+            default:
+                cout << "Opcion incorrecta" << endl;
+                break;
         }
-
-        montoTotal += montoPagar;
-
-        cout << "Monto bruto: " << montoBruto << endl;
-        cout << "Monto descuento: " << montoDescuento << endl;
-        cout << "Monto a pagar: " << montoPagar << endl;
-    }while(tipoProducto != 'X');
-
-    cout << "Cantidad de Mouse: " << cantMouse << endl;
-    cout << "Cantidad de Teclado: " << cantTeclado << endl;
-    cout << "Cantidad de Disco Duro: " << cantDiscoDuro << endl;
-    cout << "Cantidad de Monitor: " << cantMonitor << endl;
-    cout << "Monto total: " << montoTotal << endl;
+    }while(opcion != 4);
 
     return 0;
+}
+
+// FUNCIONES
+void ingresarPromedioFinal(){
+    char continuar; // s S || n N
+    do{
+        do{
+            cout << "Ingrese el promedio final: ";
+            cin >> promedioFinal;
+        }while(promedioFinal < 0 || promedioFinal > 20);
+        acumuladorPromediosFinales += promedioFinal;
+        cantidadPromediosFinales++;
+        cout << "Desea continuar? (s/n): ";
+        cin >> continuar;
+    }while(continuar == 's' || continuar == 'S');
+}
+
+void mostrarPromedioFinal(){
+    cout << "El promedio final es: " << promedioFinal << endl;
+}
+
+void mostrarAcumuladorPromediosFinales(){
+    cout << "El acumulador de promedios finales es: " << acumuladorPromediosFinales << endl;
+    cout << "La cantidad de promedios finales es: " << cantidadPromediosFinales << endl;
+}
+
+void mostrarPromedioGeneral(){
+    promedioGeneral = acumuladorPromediosFinales / cantidadPromediosFinales;
+    cout << "El promedio general es: " << promedioGeneral << endl;
 }
