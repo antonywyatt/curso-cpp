@@ -1,5 +1,5 @@
 # curso-cpp
-mis ejercicios de c++ 🤔😁😁
+Ejercicios practicos C++ 🌴
 
 ## Compilar
 <code>g++ <file.cpp> -o _app-name_</code>
