@@ -1,10 +1,8 @@
-// Pila.h
-#ifndef PILA_H
-#define PILA_H
 #include <iostream>
+#include <string>
 
 struct Nodo {
-    int dato;
+    std::string dato;
     Nodo* siguiente;
 };
 
@@ -12,15 +10,13 @@ class Pila {
 public:
     Pila();
     ~Pila();
-    void push(int valor);
+    void push(const std::string& valor);
     void pop();
-    int top();
+    std::string top();
     bool vacia();
 private:
     Nodo* tope;
 };
-
-#endif
 
 Pila::Pila() : tope(nullptr) {}
 
@@ -30,7 +26,7 @@ Pila::~Pila() {
     }
 }
 
-void Pila::push(int valor) {
+void Pila::push(const std::string& valor) {
     Nodo* nuevoNodo = new Nodo{valor, tope};
     tope = nuevoNodo;
 }
@@ -45,9 +41,9 @@ void Pila::pop() {
     delete nodoEliminar;
 }
 
-int Pila::top() {
+std::string Pila::top() {
     if (vacia()) {
-        return -1;
+        return "";
     }
     return tope->dato;
 }

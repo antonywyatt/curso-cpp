@@ -7,6 +7,9 @@ using namespace std;
 
 struct Nodo {
     int dato;
+    string valor1;
+    string valor2;
+    string valor3;
     Nodo* siguiente;
     Nodo* anterior;
 };
@@ -15,10 +18,12 @@ class ListaCircularDoble {
 public:
     ListaCircularDoble();
     ~ListaCircularDoble();
-    void agregar(int valor);
+    void agregar(Nodo valor);
     void eliminar(int valor);
     void imprimir();
-private:
+    void next();
+    void prev();
+public:
     Nodo* cabeza;
 };
 
@@ -38,8 +43,12 @@ ListaCircularDoble::~ListaCircularDoble() {
     } while (actual != cabeza);
 }
 
-void ListaCircularDoble::agregar(int valor) {
-    Nodo* nuevoNodo = new Nodo{valor, nullptr, nullptr};
+void ListaCircularDoble::agregar(Nodo valor) {
+    Nodo* nuevoNodo = new Nodo;
+    nuevoNodo->dato = valor.dato;
+    nuevoNodo->valor1 = valor.valor1;
+    nuevoNodo->valor2 = valor.valor2;
+    nuevoNodo->valor3 = valor.valor3;
     if (!cabeza) {
         cabeza = nuevoNodo;
         cabeza->siguiente = cabeza;
@@ -88,8 +97,21 @@ void ListaCircularDoble::imprimir() {
     }
     Nodo* actual = cabeza;
     do {
-        cout << actual->dato << " ";
+        cout << actual->dato << " - " << actual->valor1 << " - " << actual->valor2 << " - " << actual->valor3 << endl;
         actual = actual->siguiente;
     } while (actual != cabeza);
-    cout << endl;
+}
+
+void ListaCircularDoble::next() {
+    if (!cabeza) {
+        return;
+    }
+    cabeza = cabeza->siguiente;
+}
+
+void ListaCircularDoble::prev() {
+    if (!cabeza) {
+        return;
+    }
+    cabeza = cabeza->anterior;
 }

@@ -6,7 +6,7 @@
 using namespace std;
 
 struct Nodo {
-    int dato;
+    char dato;
     Nodo* siguiente;
     Nodo* anterior;
 };
@@ -15,8 +15,8 @@ class ListaDoble {
 public:
     ListaDoble();
     ~ListaDoble();
-    void agregar(int valor);
-    void eliminar(int valor);
+    void agregar(char valor);
+    void eliminar(char valor);
     void imprimir();
 private:
     Nodo* cabeza;
@@ -35,7 +35,7 @@ ListaDoble::~ListaDoble() {
     }
 }
 
-void ListaDoble::agregar(int valor) {
+void ListaDoble::agregar(char valor) {
     Nodo* nuevoNodo = new Nodo{valor, nullptr, nullptr};
     if (!cabeza) {
         cabeza = nuevoNodo;
@@ -47,7 +47,7 @@ void ListaDoble::agregar(int valor) {
     }
 }
 
-void ListaDoble::eliminar(int valor) {
+void ListaDoble::eliminar(char valor) {
     if (!cabeza) {
         return; // Lista vacía, no se puede eliminar
     }
@@ -85,7 +85,7 @@ void ListaDoble::eliminar(int valor) {
 void ListaDoble::imprimir() {
     Nodo* actual = cabeza;
     while (actual) {
-        cout << actual->dato << " ";
+        cout << actual->dato << "";
         actual = actual->siguiente;
     }
     cout << endl;

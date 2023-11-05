@@ -3,8 +3,13 @@
 #ifndef COLA_H
 #define COLA_H
 
+using namespace std;
+
 struct Nodo {
     int dato;
+    string valor1;
+    string valor2;
+    string valor3;
     Nodo* siguiente;
 };
 
@@ -12,9 +17,9 @@ class Cola {
 public:
     Cola();
     ~Cola();
-    void push(int valor);
+    void push(Nodo valor);
     void pop();
-    int front();
+    Nodo front();
     bool vacia();
 private:
     Nodo* frente;
@@ -31,8 +36,13 @@ Cola::~Cola() {
     }
 }
 
-void Cola::push(int valor) {
-    Nodo* nuevoNodo = new Nodo{valor, nullptr};
+void Cola::push(Nodo valor) {
+    Nodo* nuevoNodo = new Nodo;
+    nuevoNodo->dato = valor.dato;
+    nuevoNodo->valor1 = valor.valor1;
+    nuevoNodo->valor2 = valor.valor2;
+    nuevoNodo->valor3 = valor.valor3;
+    nuevoNodo->siguiente = nullptr;
     if (vacia()) {
         frente = nuevoNodo;
     } else {
@@ -45,17 +55,17 @@ void Cola::pop() {
     if (vacia()) {
         return;
     }
-
-    Nodo* nodoEliminar = frente;
+    Nodo* temp = frente;
     frente = frente->siguiente;
-    delete nodoEliminar;
+    delete temp;
 }
 
-int Cola::front() {
+Nodo Cola::front() {
     if (vacia()) {
-        return -1;
+        return Nodo();
     }
-    return frente->dato;
+    //retornar toda la estructura
+    return *frente;
 }
 
 bool Cola::vacia() {
