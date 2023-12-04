@@ -25,7 +25,7 @@ private:
 
 #endif
 
-ListaDoble::ListaDoble() : cabeza(nullptr), cola(nullptr) {}
+ListaDoble::ListaDoble() : cabeza(NULL), cola(NULL) {}
 
 ListaDoble::~ListaDoble() {
     while (cabeza) {
@@ -36,7 +36,7 @@ ListaDoble::~ListaDoble() {
 }
 
 void ListaDoble::agregar(char valor) {
-    Nodo* nuevoNodo = new Nodo{valor, nullptr, nullptr};
+    Nodo* nuevoNodo = new Nodo{valor, NULL, NULL};
     if (!cabeza) {
         cabeza = nuevoNodo;
         cola = nuevoNodo;
@@ -56,14 +56,14 @@ void ListaDoble::eliminar(char valor) {
         Nodo* nodoEliminar = cabeza;
         cabeza = cabeza->siguiente;
         if (cabeza) {
-            cabeza->anterior = nullptr;
+            cabeza->anterior = NULL;
         }
         delete nodoEliminar;
     } else if (cola->dato == valor) {
         Nodo* nodoEliminar = cola;
         cola = cola->anterior;
         if (cola) {
-            cola->siguiente = nullptr;
+            cola->siguiente = NULL;
         }
         delete nodoEliminar;
     } else {

@@ -29,7 +29,7 @@ public:
 
 #endif
 
-ListaCircularDoble::ListaCircularDoble() : cabeza(nullptr) {}
+ListaCircularDoble::ListaCircularDoble() : cabeza(NULL) {}
 
 ListaCircularDoble::~ListaCircularDoble() {
     if (!cabeza) {

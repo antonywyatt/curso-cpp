@@ -18,7 +18,7 @@ private:
     Nodo* tope;
 };
 
-Pila::Pila() : tope(nullptr) {}
+Pila::Pila() : tope(NULL) {}
 
 Pila::~Pila() {
     while (!vacia()) {
@@ -49,5 +49,5 @@ std::string Pila::top() {
 }
 
 bool Pila::vacia() {
-    return tope == nullptr;
+    return tope == NULL;
 }

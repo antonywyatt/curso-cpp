@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Cola.h"
+#include <cstdlib>
 
 using namespace std;
 
 int main() {
     Cola correoQueue;
     int correoID = 1; // Variable para asignar IDs a los correos
-    string opcionStr;
+    int opcionStr;
 
     do {
         cout << "Sistema de Correo\n";
@@ -17,8 +18,7 @@ int main() {
         cout << "Elija una opción: ";
         cin >> opcionStr;
 
-        try {
-        int opcion = stoi(opcionStr);
+        int opcion = opcionStr;
             switch (opcion) {
                 case 1: {
                     Nodo nuevoCorreo;
@@ -60,11 +60,7 @@ int main() {
                 default:
                     cout << "Opción no válida. Intente de nuevo.\n";
             } 
-        }catch (const invalid_argument& e) {
-            cout << "Entrada no válida. Ingrese un número válido.\n";
-            cin.clear();
-        }
-    } while (opcionStr != "4");
+    } while (opcionStr != 4);
 
     return 0;
 }

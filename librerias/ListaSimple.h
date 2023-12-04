@@ -27,7 +27,7 @@ private:
 
 #endif
 
-ListaSimple::ListaSimple() : cabeza(nullptr) {}
+ListaSimple::ListaSimple() : cabeza(NULL) {}
 
 ListaSimple::~ListaSimple() {
     while (cabeza) {
@@ -44,7 +44,7 @@ void ListaSimple::agregar(Nodo valor) {
         valor.valor2,
         valor.valor3,
         valor.valor4,
-        nullptr
+        NULL
     };
     if (!cabeza) {
         cabeza = nuevoNodo;

@@ -28,7 +28,7 @@ private:
 
 #endif
 
-Cola::Cola() : frente(nullptr), final(nullptr) {}
+Cola::Cola() : frente(NULL), final(NULL) {}
 
 Cola::~Cola() {
     while (!vacia()) {
@@ -42,7 +42,7 @@ void Cola::push(Nodo valor) {
     nuevoNodo->valor1 = valor.valor1;
     nuevoNodo->valor2 = valor.valor2;
     nuevoNodo->valor3 = valor.valor3;
-    nuevoNodo->siguiente = nullptr;
+    nuevoNodo->siguiente = NULL;
     if (vacia()) {
         frente = nuevoNodo;
     } else {
@@ -69,5 +69,5 @@ Nodo Cola::front() {
 }
 
 bool Cola::vacia() {
-    return frente == nullptr;
+    return frente == NULL;
 }
